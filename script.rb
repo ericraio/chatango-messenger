@@ -1,7 +1,7 @@
 require "./chatango_home.rb"
 require "set"
 
-$acc = ["name", "password"]
+$acc = ["crixia0226", "c0llegato"]
 
 def lSent
 	$sent = Set.new(File.read("sent").split(";"))
@@ -58,7 +58,8 @@ $ch.main() do |event, data|
 			
 			Thread.new do
 				$usrs.each do |usr|
-					$ch.do_msg(usr, msgs[rand(msgs.length)] % url)
+				  puts "Messaging #{usr}"
+					$ch.do_msg(usr, msg)
 					$sent << usr
 					sSent
 					i += 1
