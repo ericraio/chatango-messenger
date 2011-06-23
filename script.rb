@@ -1,11 +1,12 @@
 require "./chatango_home.rb"
 require "set"
 
-$acc = ["drako06", "c0llegato"]
+$acc = ["crixia0226", "c0llegato"]
 
 def lSent
 	$sent = Set.new(File.read("sent").split(";"))
 end
+
 def sSent
 	File.open("sent", "w") do |f|
 		f.write($sent.to_a.join(";"))
@@ -16,7 +17,7 @@ lSent
 
 $ch = Chatango_Home.new("c1.chatango.com", "5222", nil, $acc[0], $acc[1])
 
-msg = "Hey come check out my friends new anime site! http://www.animulu.com :D",
+msg = "Hey come check out my friends new anime site! http://www.animulu.com ^_^",
 
 puts {"Logging in."}
 
@@ -31,8 +32,8 @@ $ch.main() do |event, data|
 			puts "Logged in, performing search..."
 			$usrs_raw = $ch.do_user_search({
 				"ss" => "",
-				"o" => "yes",
-				"i" => "",
+				"o" => "y",
+				"i" => "y",
 				"ama" => "150",
 				"ami" => "13",
 				"f" => "0",
@@ -58,7 +59,8 @@ $ch.main() do |event, data|
 			
 			Thread.new do
 				$usrs.each do |usr|
-					$ch.do_msg(usr, msgs[rand(msgs.length)] % url)
+				  puts "Messaging #{usr}"
+					$ch.do_msg(usr, msg)
 					$sent << usr
 					sSent
 					i += 1
