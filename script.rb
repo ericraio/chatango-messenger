@@ -1,7 +1,7 @@
 require "./chatango_home.rb"
 require "set"
 
-$acc = ["drako06", "c0llegato"]
+$acc = ["", ""]
 
 def lSent
 	$sent = Set.new(File.read("sent").split(";"))
