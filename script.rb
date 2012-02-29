@@ -16,7 +16,7 @@ lSent
 
 $ch = Chatango_Home.new("c1.chatango.com", "5222", nil, $acc[0], $acc[1])
 
-msg = "Hey come check out my friends new anime site! http://www.animulu.com :D",
+msg = "",
 
 puts {"Logging in."}
 
